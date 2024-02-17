@@ -1,0 +1,47 @@
+[
+  [
+    { "eng": "bä", "glyph": "ቈ" },
+    { "eng": "bu", "glyph": "\u1249" },
+    { "eng": "bi", "glyph": "ቊ" },
+    { "eng": "ba", "glyph": "ቋ" },
+    { "eng": "be", "glyph": "ቌ" },
+    { "eng": "bï", "glyph": "ቍ" },
+    { "eng": "bo", "glyph": "\u124e" }
+  ],
+  [
+    { "eng": "tä", "glyph": "ቐ" },
+    { "eng": "tu", "glyph": "ቑ" },
+    { "eng": "ti", "glyph": "ቒ" },
+    { "eng": "ta", "glyph": "ቓ" },
+    { "eng": "te", "glyph": "ቔ" },
+    { "eng": "tï", "glyph": "ቕ" },
+    { "eng": "to", "glyph": "ቖ" }
+  ],
+  [
+    { "eng": "čä", "glyph": "ቘ" },
+    { "eng": "ču", "glyph": "\u1259" },
+    { "eng": "či", "glyph": "ቚ" },
+    { "eng": "ča", "glyph": "ቛ" },
+    { "eng": "če", "glyph": "ቜ" },
+    { "eng": "čï", "glyph": "ቝ" },
+    { "eng": "čo", "glyph": "\u125e" }
+  ],
+  [
+    { "eng": "wä", "glyph": "ኈ" },
+    { "eng": "wu", "glyph": "\u1289" },
+    { "eng": "wi", "glyph": "ኊ" },
+    { "eng": "wa", "glyph": "ኋ" },
+    { "eng": "we", "glyph": "ኌ" },
+    { "eng": "wï", "glyph": "ኍ" },
+    { "eng": "wo", "glyph": "\u128e" }
+  ],
+  [
+    { "eng": "dä", "glyph": "ኰ" },
+    { "eng": "du", "glyph": "\u12b1" },
+    { "eng": "di", "glyph": "ኲ" },
+    { "eng": "da", "glyph": "ኳ" },
+    { "eng": "de", "glyph": "ኴ" },
+    { "eng": "dï", "glyph": "ኵ" },
+    { "eng": "do", "glyph": "\u12b6" }
+  ]
+]
