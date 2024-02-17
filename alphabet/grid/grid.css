@@ -1,0 +1,36 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(11, max-content);
+  grid-template-rows: repeat(11, max-content);
+  grid-gap: 100px;
+  place-items: center;
+  padding: 200px;
+}
+
+.grid1 {
+  display: grid;
+  grid-template-columns: repeat(7, max-content);
+  grid-template-rows: repeat(7, max-content);
+  grid-gap: 100px;
+  place-items: center;
+  padding: 200px;
+}
+
+.grid2 {
+  display: grid;
+  grid-template-columns: repeat(5, max-content);
+  grid-template-rows: repeat(5, max-content);
+  grid-gap: 100px;
+  place-items: center;
+  padding: 100px;
+}
+
+input {
+  scale: 10;
+}
+
+p {
+  font-size: 78px;
+  font-weight: bold;
+  color: #000;
+}
