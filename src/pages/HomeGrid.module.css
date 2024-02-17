@@ -1,0 +1,51 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: 100dvh;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(6, var(--size-fluid-5));
+  grid-template-rows: repeat(6, var(--size-fluid-5));
+  grid-gap: var(--size-2);
+  place-content: center;
+
+  flex-grow: 1;
+}
+
+.cell {
+  position: relative;
+  border: 2px solid var(--gray-6);
+
+  animation: pull-down 300ms;
+}
+
+@keyframes pull-down {
+  from {
+    top: 0;
+  }
+}
+
+.cell:nth-child(6n-4) {
+  top: var(--size-4);
+}
+
+.cell:nth-child(6n-3) {
+  top: calc(var(--size-4) * 2);
+}
+
+.cell:nth-child(6n-2) {
+  top: calc(var(--size-4) * 3);
+}
+
+.cell:nth-child(6n-1) {
+  top: calc(var(--size-4) * 4);
+}
+
+.cell:nth-child(6n) {
+  top: calc(var(--size-4) * 5);
+}
