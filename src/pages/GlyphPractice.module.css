@@ -1,0 +1,42 @@
+.layout {
+  height: 100dvh;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.drawing-area {
+  flex-grow: 1;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.drawing-area h1 {
+  font-size: 120px;
+}
+
+.glyph-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--size-2);
+  padding-block: var(--size-4);
+
+  background: var(--gray-8);
+}
+
+.glyph {
+  width: var(--size-8);
+  height: var(--size-8);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: var(--font-size-4);
+
+  border: 2px solid var(--gray-4);
+}

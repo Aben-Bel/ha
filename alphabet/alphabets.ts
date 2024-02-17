@@ -1,20 +1,20 @@
-import {data} from "./json/v1";
+import { data } from "./json/v1";
 
-type alphabet = {
+export type Alphabet = {
   eng: string;
   glyph: string;
   gridSize: number;
   coloredCells: Array<Array<number>>;
 };
 
-type incompleteAlphabet = {
+export type IncompleteAlphabet = {
   eng: string;
   glyph: string;
 };
 
-class Alphabets {
-  getBasicAlphabets(): Array<alphabet | incompleteAlphabet> {
-    const basicAlphabets: Array<alphabet | incompleteAlphabet> = [];
+export class Alphabets {
+  getBasicAlphabets(): Array<Alphabet | IncompleteAlphabet> {
+    const basicAlphabets: Array<Alphabet | IncompleteAlphabet> = [];
     for (let group of data) {
       basicAlphabets.push(group[0]);
     }
@@ -22,14 +22,14 @@ class Alphabets {
     return basicAlphabets;
   }
 
-  getDerivative(nth: number): Array<alphabet | incompleteAlphabet> {
+  getDerivatives(nth: number): Array<Alphabet | IncompleteAlphabet> {
     if (!(nth >= 0 && data.length > nth)) {
       return [];
     }
 
-    let derivatives: Array<alphabet | incompleteAlphabet> = [];
-    let group: Array<alphabet | incompleteAlphabet> = data[nth] as Array<
-      alphabet | incompleteAlphabet
+    let derivatives: Array<Alphabet | IncompleteAlphabet> = [];
+    let group: Array<Alphabet | IncompleteAlphabet> = data[nth] as Array<
+      Alphabet | IncompleteAlphabet
     >;
     derivatives = group;
     return derivatives;

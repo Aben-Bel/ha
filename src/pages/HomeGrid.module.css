@@ -19,6 +19,11 @@
 
 .cell {
   position: relative;
+
+  line-height: var(--size-fluid-5);
+  text-align: center;
+  font-size: var(--font-size-4);
+
   border: 2px solid var(--gray-6);
 
   animation: pull-down 300ms;
