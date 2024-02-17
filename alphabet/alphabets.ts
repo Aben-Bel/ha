@@ -1,4 +1,4 @@
-import data from "./json/v1.json";
+import {data} from "./json/v1";
 
 type alphabet = {
   eng: string;
