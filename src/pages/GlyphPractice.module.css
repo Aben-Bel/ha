@@ -8,14 +8,21 @@
 .drawing-area {
   flex-grow: 1;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  place-content: center;
+  grid-template-columns: repeat(var(--columns, 5), max-content);
+  grid-template-rows: repeat(var(--columns, 5), max-content);
 }
 
-.drawing-area h1 {
-  font-size: 120px;
+.drawing-cell {
+  width: var(--size-fluid-6);
+  height: var(--size-fluid-6);
+
+  border: 2px solid var(--gray-4);
+}
+
+.drawing-cell--filled {
+  background: var(--gray-7);
 }
 
 .glyph-group {
@@ -38,5 +45,6 @@
 
   font-size: var(--font-size-4);
 
+  background: none;
   border: 2px solid var(--gray-4);
 }
