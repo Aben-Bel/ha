@@ -2,12 +2,12 @@ import { For, createMemo } from "solid-js";
 import styles from "./GlyphGrid.module.css";
 import { type Alphabet } from "../../alphabet/alphabets";
 
-export default function GlyphGrid({ glyph }: { glyph: Alphabet }) {
-  console.log("GlyphGrid");
+export default function GlyphGrid(props: { glyph: Alphabet }) {
+  const glyph = () => props.glyph;
 
   const composePracticeGrid = createMemo(() => {
-    const gridSize = glyph.gridSize;
-    const coloredCells = glyph.coloredCells;
+    const gridSize = glyph().gridSize;
+    const coloredCells = glyph().coloredCells;
 
     const grid: number[][] = Array.from({ length: gridSize }, () =>
       Array(gridSize).fill(0)
@@ -24,7 +24,7 @@ export default function GlyphGrid({ glyph }: { glyph: Alphabet }) {
     <div
       class={styles["drawing-grid"]}
       style={{
-        "--columns": glyph.gridSize,
+        "--columns": glyph().gridSize,
       }}
     >
       <For each={composePracticeGrid()}>
