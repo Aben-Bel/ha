@@ -12,6 +12,12 @@ export type IncompleteAlphabet = {
   glyph: string;
 };
 
+export function isAlphabet(
+  alphabet: Alphabet | IncompleteAlphabet
+): alphabet is Alphabet {
+  return (alphabet as Alphabet).gridSize !== undefined;
+}
+
 export class Alphabets {
   getBasicAlphabets(): Array<Alphabet | IncompleteAlphabet> {
     const basicAlphabets: Array<Alphabet | IncompleteAlphabet> = [];

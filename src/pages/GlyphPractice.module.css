@@ -8,21 +8,9 @@
 .drawing-area {
   flex-grow: 1;
 
-  display: grid;
-  place-content: center;
-  grid-template-columns: repeat(var(--columns, 5), max-content);
-  grid-template-rows: repeat(var(--columns, 5), max-content);
-}
-
-.drawing-cell {
-  width: var(--size-fluid-6);
-  height: var(--size-fluid-6);
-
-  border: 2px solid var(--gray-4);
-}
-
-.drawing-cell--filled {
-  background: var(--gray-7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .glyph-group {
