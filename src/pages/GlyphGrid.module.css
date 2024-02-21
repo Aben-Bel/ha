@@ -11,6 +11,22 @@
   border: 2px solid var(--gray-4);
 }
 
-.drawing-cell--filled {
+.drawing-cell--grey {
   background: var(--gray-7);
+}
+
+.drawing-cell--black {
+  background: black;
+}
+
+.drawing-cell--red {
+  background: var(--red-7);
+}
+
+.drawing-cell--green {
+  background: var(--green-7);
+}
+
+.drawing-cell--white {
+  background: var(--white-7);
 }
