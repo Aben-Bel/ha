@@ -12,7 +12,7 @@
 
 
 .drawing-cell--grey { background: var(--gray-7); }
-.drawing-cell--black { background: black; }
+.drawing-cell--black { background: orange; }
 .drawing-cell--red { background: var(--red-7); }
 .drawing-cell--green { background: var(--green-7); }
 .drawing-cell--white { background: var(--white-7); }
