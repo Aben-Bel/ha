@@ -37,6 +37,10 @@
   border: 2px solid var(--gray-4);
 }
 
+.select-glyph{
+background: orange;
+}
+
 .glyph-font{
   font-size: 300px;
 }
