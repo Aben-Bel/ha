@@ -51,7 +51,7 @@ export default function GlyphPractice() {
   return (
     <div class={styles.layout}>
 
-      {showGrid() ? (
+      {showGrid() && (
         <div class={styles["drawing-area"]}>
           {isAlphabet(selectedGlyph()) ? (
             <GlyphGrid
@@ -62,7 +62,9 @@ export default function GlyphPractice() {
             <h1>Incomplete</h1>
           )}
         </div>
-      ) : (
+      )}
+      
+      {!showGrid() && (
         <div class={styles["drawing-area"]}>
           <div><span class={styles["glyph-font"]}>{selectedGlyph().glyph}</span></div>
           <button class={styles["next-glyph-button"]} onClick={goToNextGlyph}>
@@ -75,7 +77,7 @@ export default function GlyphPractice() {
       <div class={styles["glyph-group"]}>
         <For each={derivatives}>
           {({ glyph }, index) => (
-            <button class={styles.glyph} onClick={() => selectGlyph(index())}>
+            <button class={styles.glyph} onClick={() => {selectGlyph(index());clearInterval(intervalId);setShowGrid(true)}}>
               {glyph}
             </button>
           )}

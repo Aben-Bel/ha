@@ -64,6 +64,11 @@ export default function GlyphGrid(props: { glyph: Alphabet, onCompletion: () => 
   }
 
   createEffect(()=>{
+    if(curGlyph() !== glyph().glyph){
+      setCells(composePracticeGrid());
+      setCurGlyph(glyph().glyph);
+    }
+    
     const allBlack = props.glyph.coloredCells.every(([row, col])=>cells()[row][col] === CELL_STATES.BLACK);
     if(allBlack){
       setCells((currentStates)=>{
@@ -74,11 +79,6 @@ export default function GlyphGrid(props: { glyph: Alphabet, onCompletion: () => 
       intervalId = setInterval(()=>{
         props.onCompletion();
       }, ONE_SEC);
-    }
-
-    if(curGlyph() !== glyph().glyph){
-      setCells(composePracticeGrid());
-      setCurGlyph(glyph().glyph);
     }
   })
 
