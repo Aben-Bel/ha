@@ -1,4 +1,4 @@
-import { For, createEffect, createMemo, createSignal } from "solid-js";
+import { For, createEffect, createMemo, createSignal, onCleanup } from "solid-js";
 import styles from "./GlyphGrid.module.css";
 import { type Alphabet } from "../../alphabet/alphabets";
 
@@ -6,7 +6,9 @@ enum CELL_STATES{
   WHITE=0, GREY=1, BLACK=2, RED=3, GREEN=4
 }
 
-export default function GlyphGrid(props: { glyph: Alphabet }) {
+const ONE_SEC=1000;
+
+export default function GlyphGrid(props: { glyph: Alphabet, onCompletion: () => void }) {
   const glyph = () => props.glyph;
 
   const composePracticeGrid = () => {
@@ -25,8 +27,11 @@ export default function GlyphGrid(props: { glyph: Alphabet }) {
   };
 
   const [cells,setCells] = createSignal(composePracticeGrid());
-  
-  const gridMemo = createMemo(() => cells());
+  const [curGlyph, setCurGlyph] = createSignal(glyph().glyph);
+
+  let intervalId: number | undefined;
+
+
 
   function nextCellState(cell: number): number {
     switch (cell) {
@@ -65,7 +70,20 @@ export default function GlyphGrid(props: { glyph: Alphabet }) {
         const newGrid = [...currentStates];
         return changeAllCellToGreen(newGrid);
       });
+
+      intervalId = setInterval(()=>{
+        props.onCompletion();
+      }, ONE_SEC);
     }
+
+    if(curGlyph() !== glyph().glyph){
+      setCells(composePracticeGrid());
+      setCurGlyph(glyph().glyph);
+    }
+  })
+
+  onCleanup(()=>{
+    clearInterval(intervalId);
   })
 
   return (
@@ -74,17 +92,17 @@ export default function GlyphGrid(props: { glyph: Alphabet }) {
       style={{
         "--columns": glyph().gridSize,
       }}
-    >
-      <For each={gridMemo()}>{(row:number[], rowIndex)=>(
+      >
+      <For each={cells()}>{(row:number[], rowIndex)=>(
           <For each={row}>{(cell:number, colIndex) => (
               <div
                 class={styles["drawing-cell"]}
                 classList={{
-                  [styles["drawing-cell--white"]]: gridMemo()[rowIndex()][colIndex()] === CELL_STATES.WHITE,
-                  [styles["drawing-cell--grey"]]: gridMemo()[rowIndex()][colIndex()] === CELL_STATES.GREY,
-                  [styles["drawing-cell--black"]]: gridMemo()[rowIndex()][colIndex()] === CELL_STATES.BLACK,
-                  [styles["drawing-cell--red"]]: gridMemo()[rowIndex()][colIndex()] === CELL_STATES.RED,
-                  [styles["drawing-cell--green"]]: gridMemo()[rowIndex()][colIndex()] === CELL_STATES.GREEN,
+                  [styles["drawing-cell--white"]]: cells()[rowIndex()][colIndex()] === CELL_STATES.WHITE,
+                  [styles["drawing-cell--grey"]]: cells()[rowIndex()][colIndex()] === CELL_STATES.GREY,
+                  [styles["drawing-cell--black"]]: cells()[rowIndex()][colIndex()] === CELL_STATES.BLACK,
+                  [styles["drawing-cell--red"]]: cells()[rowIndex()][colIndex()] === CELL_STATES.RED,
+                  [styles["drawing-cell--green"]]: cells()[rowIndex()][colIndex()] === CELL_STATES.GREEN,
                 }}
                 onclick={()=>toggleCell(rowIndex(),colIndex())}
               ></div>
