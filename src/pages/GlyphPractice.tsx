@@ -77,7 +77,9 @@ export default function GlyphPractice() {
       <div class={styles["glyph-group"]}>
         <For each={derivatives}>
           {({ glyph }, index) => (
-            <button class={styles.glyph} onClick={() => {selectGlyph(index());clearInterval(intervalId);setShowGrid(true)}}>
+            <button class={styles.glyph} 
+classList={{[styles["select-glyph"]]: derivatives[index()].glyph===selectedGlyph.glyph,}}
+onClick={() => {selectGlyph(index());clearInterval(intervalId);setShowGrid(true)}}>
               {glyph}
             </button>
           )}
